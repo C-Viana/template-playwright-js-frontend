@@ -1,0 +1,8 @@
+{
+  "URL": {
+    "prod": "https://the-internet.herokuapp.com/"
+  },
+  "DIR": {
+    "results_folder": "test-results"
+  }
+}

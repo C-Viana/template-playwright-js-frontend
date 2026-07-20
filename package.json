@@ -1,0 +1,41 @@
+{
+  "name": "template-js-playwright",
+  "version": "1.0.0",
+  "description": "Automation tests for The Internet using Playwright",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report",
+    "lint": "eslint",
+    "lint:tests": "eslint src tests",
+    "lint:fix": "eslint --fix",
+    "lint:fix-tests": "eslint --fix src tests",
+    "format": "prettier --write src tests"
+  },
+  "keywords": [
+    "testing",
+    "playwright",
+    "automation"
+  ],
+  "author": "Carlos Viana <carlosedsviana@protonmail.com> (https://www.linkedin.com/in/carlos-eds-viana/)",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@eslint/json": "^2.0.1",
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^26.1.0",
+    "axios": "^1.18.1",
+    "eslint": "^10.7.0",
+    "globals": "^17.7.0",
+    "jiti": "^2.7.0",
+    "node-tesseract-ocr": "^2.2.1",
+    "prettier": "3.9.5",
+    "tesseract.js": "^7.0.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.64.0"
+  }
+}
