@@ -32,7 +32,7 @@ export class FileUploadPage {
 
   async inputFile(filePath: string) {
     await this.fileInput.setInputFiles(filePath);
-    this.expectedFileName = filePath.split("\\").slice(-1)[0];
+    this.expectedFileName = filePath.split("/").slice(-1)[0];
     await this.capture.viewport(DIR.results_folder, "Uploading-File");
   }
 

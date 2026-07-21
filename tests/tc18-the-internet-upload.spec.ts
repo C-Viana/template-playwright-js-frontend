@@ -15,7 +15,7 @@ test("The Internet: File Upload", async ({ page }) => {
 
   await feature.validatePage();
   const filePath = `${process.cwd()}/README.md`;
-  console.log(`FILE PATH: ${filePath}`)
+  console.log(`FILE PATH: ${filePath}`);
   await feature.inputFile(filePath);
   await feature.clickUpload();
   await feature.validateUploadedFile();
