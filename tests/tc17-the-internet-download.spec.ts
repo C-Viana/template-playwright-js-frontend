@@ -1,7 +1,8 @@
-import { test } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 import { ScreenshotHelper } from "../src/utils/ScreenshotHelper.js";
 import { HomePage } from "../src/pages/HomePage.js";
 import { FileDownloadPage } from "../src/pages/FileDownloadPage.js";
+import { APP } from "../src/data/TestData.js";
 
 test("The Internet: File Download", async ({ page }) => {
   const folderName = "SC17-TC01";
@@ -11,7 +12,8 @@ test("The Internet: File Download", async ({ page }) => {
 
   await home.navigate();
   await home.selectMenu("File Download");
-  await home.validateTitle();
+  expect(await home.getTitle()).toBe(APP.title);
+
   await feature.validatePage();
   await feature.selectRandomFile();
   await feature.downloadFile(folderName);

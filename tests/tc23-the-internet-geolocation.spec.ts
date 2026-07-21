@@ -1,8 +1,9 @@
-import { test } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 import { ScreenshotHelper } from "../src/utils/ScreenshotHelper.js";
 import { HomePage } from "../src/pages/HomePage.js";
 import { GeolocationPage } from "../src/pages/GeolocationPage.js";
 import data from "../src/data/TestData.json" with { type: "json" };
+import { APP } from "../src/data/TestData.js";
 
 test("The Internet: Geolocation", async ({ page, context }) => {
   await context.grantPermissions(["geolocation"], { origin: data.URL.prod });
@@ -14,7 +15,8 @@ test("The Internet: Geolocation", async ({ page, context }) => {
 
   await home.navigate();
   await home.selectMenu("Geolocation");
-  await home.validateTitle();
+  expect(await home.getTitle()).toBe(APP.title);
+
   await feature.validatePage();
   await feature.clickPostionButton();
   await feature.validateGeoCoordinates();

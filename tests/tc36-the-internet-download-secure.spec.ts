@@ -1,8 +1,9 @@
-import { test } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 import { ScreenshotHelper } from "../src/utils/ScreenshotHelper.js";
 import { HomePage } from "../src/pages/HomePage.js";
 import { FileDownloadPage } from "../src/pages/FileDownloadPage.js";
 import { loadEnvFile } from "node:process";
+import { APP } from "../src/data/TestData.js";
 loadEnvFile(".env");
 
 test.use({
@@ -19,7 +20,8 @@ test("The Internet: Secure File Download", async ({ page }) => {
 
   await home.navigate();
   await home.selectMenu("Secure File Download");
-  await home.validateTitle();
+  expect(await home.getTitle()).toBe(APP.title);
+
   await feature.validateSecurePage();
   await feature.selectRandomFile();
   await feature.secureDownloadFile("SC36-TC01", {

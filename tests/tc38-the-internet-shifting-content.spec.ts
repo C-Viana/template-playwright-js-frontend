@@ -1,7 +1,8 @@
-import { test } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 import { ScreenshotHelper } from "../src/utils/ScreenshotHelper.js";
 import { HomePage } from "../src/pages/HomePage.js";
 import { ShiftingContentPage } from "../src/pages/ShiftingContentPage.js";
+import { APP } from "../src/data/TestData.js";
 
 test("The Internet: Shifting Content - List", async ({ page }) => {
   const capture = new ScreenshotHelper(page, "SC38-TC01");
@@ -18,7 +19,8 @@ test("The Internet: Shifting Content - List", async ({ page }) => {
 
   await home.navigate();
   await home.selectMenu("Shifting Content");
-  await home.validateTitle();
+  expect(await home.getTitle()).toBe(APP.title);
+
   await feature.validatePage();
   await feature.clickList();
   const contentBefore = await feature.getContent();

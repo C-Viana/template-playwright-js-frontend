@@ -1,4 +1,4 @@
-import { expect, Page } from "@playwright/test";
+import { Page } from "@playwright/test";
 import { ScreenshotHelper } from "../utils/ScreenshotHelper.js";
 import { URL, DIR } from "../data/TestData.js";
 
@@ -17,16 +17,16 @@ export class HomePage {
 
   async navigate() {
     await this.page.goto(URL.prod);
-    await this.capture.fullpage(`${DIR.results_folder}`, `Home-Page.png`);
+    await this.capture.fullpage(`${DIR.results_folder}`, `Home-Page`);
   }
 
   async selectMenu(menuItemText: string) {
-    await this.page.click(`//a[text()="${menuItemText}"]`);
+    await this.page.getByRole('link', { name: menuItemText, exact: true }).click();
     await this.page.waitForLoadState("load");
-    await this.capture.fullpage(`${DIR.results_folder}`, `Feature-Page.png`);
+    await this.capture.fullpage(`${DIR.results_folder}`, `Feature-Page`);
   }
 
-  async validateTitle() {
-    await expect(this.page).toHaveTitle("The Internet");
+  async getTitle(): Promise<string> {
+    return await this.page.title();
   }
 }

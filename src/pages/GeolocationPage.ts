@@ -32,13 +32,13 @@ export class GeolocationPage {
     expect(await this.featureButton.textContent({ timeout: 3000 })).toBe(
       "Where am I?",
     );
-    await this.capture.viewport(DIR.results_folder, "Click-Button.png");
+    await this.capture.viewport(DIR.results_folder, "Click-Button");
     await this.featureButton.click();
   }
 
   async validateGeoCoordinates() {
     await expect(this.latitude).toBeVisible({ timeout: 2000 });
     await expect(this.longitude).toBeVisible();
-    await this.capture.viewport(DIR.results_folder, "Geo-Data-Validated.png");
+    await this.capture.viewport(DIR.results_folder, "Geo-Data-Validated");
   }
 }

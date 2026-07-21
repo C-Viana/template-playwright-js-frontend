@@ -40,7 +40,7 @@ export class DisappearingElementsPage {
       testControl++;
     }
 
-    await this.capture.viewport(DIR.results_folder, "Reloaded-Page.png");
+    await this.capture.viewport(DIR.results_folder, "Reloaded-Page");
     if (testControl == maxReps)
       throw new Error(
         `Menu item was not present after ${maxReps} attemps reloading the page`,

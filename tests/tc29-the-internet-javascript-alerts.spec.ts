@@ -1,7 +1,8 @@
-import { test } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 import { ScreenshotHelper } from "../src/utils/ScreenshotHelper.js";
 import { HomePage } from "../src/pages/HomePage.js";
 import { JavaScriptAlertsPage } from "../src/pages/JavaScriptAlertsPage.js";
+import { APP } from "../src/data/TestData.js";
 
 test("The Internet: JavaScript Alerts", async ({ page }) => {
   const capture = new ScreenshotHelper(page, "SC29-TC01");
@@ -10,7 +11,7 @@ test("The Internet: JavaScript Alerts", async ({ page }) => {
 
   await home.navigate();
   await home.selectMenu("JavaScript Alerts");
-  await home.validateTitle();
+  await home.getTitle();
   await feature.validatePage();
   await feature.dialogAlertType();
 });
@@ -22,7 +23,8 @@ test("The Internet: JavaScript Confirm Accept", async ({ page }) => {
 
   await home.navigate();
   await home.selectMenu("JavaScript Alerts");
-  await home.validateTitle();
+  expect(await home.getTitle()).toBe(APP.title);
+
   await feature.validatePage();
   await feature.dialogConfirmType("accept", "Ok");
 });
@@ -34,7 +36,8 @@ test("The Internet: JavaScript Confirm Dismiss", async ({ page }) => {
 
   await home.navigate();
   await home.selectMenu("JavaScript Alerts");
-  await home.validateTitle();
+  expect(await home.getTitle()).toBe(APP.title);
+
   await feature.validatePage();
   await feature.dialogConfirmType("dismiss", "Cancel");
 });
@@ -46,7 +49,8 @@ test("The Internet: JavaScript Prompt Accept", async ({ page }) => {
 
   await home.navigate();
   await home.selectMenu("JavaScript Alerts");
-  await home.validateTitle();
+  expect(await home.getTitle()).toBe(APP.title);
+
   await feature.validatePage();
   await feature.dialogPromptType("accept", "Typed test message");
 });
@@ -58,7 +62,8 @@ test("The Internet: JavaScript Prompt Dismiss", async ({ page }) => {
 
   await home.navigate();
   await home.selectMenu("JavaScript Alerts");
-  await home.validateTitle();
+  expect(await home.getTitle()).toBe(APP.title);
+  
   await feature.validatePage();
   await feature.dialogPromptType("accept", "");
 });

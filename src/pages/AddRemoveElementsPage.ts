@@ -19,8 +19,8 @@ export class AddRemoveElementsPage {
     this.buttonRemove = page.locator('//button[text()="Delete"]');
   }
 
-  async validatePage() {
-    await expect(this.page.locator("h3")).toHaveText("Add/Remove Elements");
+  async validatePage(expectedTitleText: string) {
+    await expect(this.page.locator("h3")).toHaveText(expectedTitleText);
     await expect(
       this.page.locator('//button[text()="Delete"]'),
     ).not.toBeVisible();

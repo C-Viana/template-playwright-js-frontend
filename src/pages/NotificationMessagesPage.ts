@@ -40,7 +40,7 @@ export class NotificationMessagesPage {
     await this.capture.component(
       this.notification,
       DIR.results_folder,
-      "Notification-Validated.png",
+      "Notification-Validated",
     );
     expect(expectedMessages).toContain(currentMessage?.split("\n")[1].trim());
   }

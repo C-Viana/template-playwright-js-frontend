@@ -32,7 +32,6 @@
     "eslint": "^10.7.0",
     "globals": "^17.7.0",
     "jiti": "^2.7.0",
-    "node-tesseract-ocr": "^2.2.1",
     "prettier": "3.9.5",
     "tesseract.js": "^7.0.0",
     "typescript": "^6.0.3",

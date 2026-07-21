@@ -35,7 +35,7 @@ export class DragAndDropPage {
   }
 
   async validateElementsSwapperd() {
-    await this.capture.viewport(DIR.results_folder, "Elements-Swapped.png");
+    await this.capture.viewport(DIR.results_folder, "Elements-Swapped");
     expect(await this.elementA.innerText()).toBe("B");
     expect(await this.elementB.innerText()).toBe("A");
   }

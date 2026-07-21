@@ -38,7 +38,7 @@ export class FormAuthenticationPage {
   async setFormData() {
     await this.inputUsername.fill(this.data.AUTH_Form_username ?? "NULL");
     await this.inputPassword.fill(this.data.AUTH_Form_password ?? "NULL");
-    await this.capture.viewport(DIR.results_folder, "Data-Set.png");
+    await this.capture.viewport(DIR.results_folder, "Data-Set");
   }
 
   async clickLogin() {
@@ -48,7 +48,7 @@ export class FormAuthenticationPage {
   async validateLogin() {
     const operationText = await this.messageSuccess.textContent();
     expect(operationText?.trim()).toContain("You logged into a secure area!");
-    await this.capture.viewport(DIR.results_folder, "Login-Success.png");
+    await this.capture.viewport(DIR.results_folder, "Login-Success");
   }
 
   async clickLogout() {
@@ -57,7 +57,7 @@ export class FormAuthenticationPage {
 
   async validateLogout() {
     await expect(this.buttonLogin).toBeVisible();
-    await this.capture.viewport(DIR.results_folder, "Logout-Success.png");
+    await this.capture.viewport(DIR.results_folder, "Logout-Success");
     const operationText = await this.messageSuccess.textContent();
     expect(operationText?.trim()).toContain(
       "You logged out of the secure area!",

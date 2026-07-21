@@ -1,7 +1,8 @@
-import { test } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 import { ScreenshotHelper } from "../src/utils/ScreenshotHelper.js";
 import { HomePage } from "../src/pages/HomePage.js";
 import { DragAndDropPage } from "../src/pages/DragAndDropPage.js";
+import { APP } from "../src/data/TestData.js";
 
 test("The Internet: Drag and Drop", async ({ page }) => {
   const capture = new ScreenshotHelper(page, "SC10-TC01");
@@ -10,7 +11,7 @@ test("The Internet: Drag and Drop", async ({ page }) => {
 
   await home.navigate();
   await home.selectMenu("Drag and Drop");
-  await home.validateTitle();
+  expect(await home.getTitle()).toBe(APP.title);
 
   await feature.validateInitialPositions();
   await feature.moveElementAToPositionB();

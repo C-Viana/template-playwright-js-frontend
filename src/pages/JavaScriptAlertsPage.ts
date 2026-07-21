@@ -58,7 +58,7 @@ export class JavaScriptAlertsPage {
     expect(await this.resultText.textContent()).toBe(
       "You successfully clicked an alert",
     );
-    await this.capture.viewport(DIR.results_folder, "Message-Visible.png");
+    await this.capture.viewport(DIR.results_folder, "Message-Visible");
   }
 
   /**
@@ -76,7 +76,7 @@ export class JavaScriptAlertsPage {
     expect(await this.resultText.textContent()).toBe(
       `You clicked: ${expectedResult}`,
     );
-    await this.capture.viewport(DIR.results_folder, "Message-Visible.png");
+    await this.capture.viewport(DIR.results_folder, "Message-Visible");
   }
 
   /**
@@ -88,7 +88,7 @@ export class JavaScriptAlertsPage {
     await this.setDialogInteraction("I am a JS prompt", action, inputMessage);
 
     await this.buttonPrompt.click();
-    await this.capture.viewport(DIR.results_folder, "Message-Visible.png");
+    await this.capture.viewport(DIR.results_folder, "Message-Visible");
     if (inputMessage == null || inputMessage === "")
       expect(await this.resultText.textContent()).toBe(`You entered: `);
     else

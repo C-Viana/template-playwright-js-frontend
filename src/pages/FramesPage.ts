@@ -80,7 +80,7 @@ export class FramesPage {
       DIR.results_folder,
       "Bottom-Frame-Visible",
     );
-    //await this.capture.viewport(DIR.results_folder, 'Validating-Frames.png')
+    //await this.capture.viewport(DIR.results_folder, 'Validating-Frames')
   }
 
   async clickIFrame() {
@@ -94,13 +94,13 @@ export class FramesPage {
     if (await this.closeButton.isVisible()) {
       await this.closeButton.click();
     }
-    await this.capture.viewport(DIR.results_folder, "Iframe-Screen.png");
+    await this.capture.viewport(DIR.results_folder, "Iframe-Screen");
   }
 
   async validateIFrameInputArea() {
     const iframeTextAreaContent =
       await this.iframeTextAreaContent.textContent();
-    await this.capture.viewport(DIR.results_folder, "Validating-Iframe.png");
+    await this.capture.viewport(DIR.results_folder, "Validating-Iframe");
     expect(iframeTextAreaContent).toBe("Your content goes here.");
   }
 }

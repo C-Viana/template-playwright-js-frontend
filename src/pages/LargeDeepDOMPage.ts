@@ -72,7 +72,7 @@ export class LargeDeepDOMPage {
       style: "width: 32px; border: solid 2px green;",
     });
     await expect(this.targetSibling).toBeInViewport();
-    await this.capture.viewport(DIR.results_folder, "Found-Sibling.png");
+    await this.capture.viewport(DIR.results_folder, "Found-Sibling");
     await this.targetSibling.hideHighlight();
   }
 
@@ -85,7 +85,7 @@ export class LargeDeepDOMPage {
     await this.scrollToView(this.targetCellValue, xPixelsStep, yPixelsStep);
     await this.targetCellValue.highlight({ style: "border: solid 2px green;" });
     await expect(this.targetCellValue).toBeInViewport();
-    await this.capture.viewport(DIR.results_folder, "Found-Cell.png");
+    await this.capture.viewport(DIR.results_folder, "Found-Cell");
     await this.targetCellValue.hideHighlight();
   }
 }

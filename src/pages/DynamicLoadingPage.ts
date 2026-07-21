@@ -47,10 +47,10 @@ export class DynamicLoadingPage {
 
   async isComponentHidden(status: boolean) {
     if (status === true) {
-      await this.capture.viewport(DIR.results_folder, "Element-Hidden.png");
+      await this.capture.viewport(DIR.results_folder, "Element-Hidden");
       await expect(this.hiddenElement).toBeHidden();
     } else {
-      await this.capture.viewport(DIR.results_folder, "Element-Visisle.png");
+      await this.capture.viewport(DIR.results_folder, "Element-Visisle");
       await expect(this.hiddenElement).toBeVisible();
       expect(await this.hiddenElement.innerText()).toBe("Hello World!");
     }
@@ -58,11 +58,11 @@ export class DynamicLoadingPage {
 
   async isRenderedComponentAttached(status: boolean) {
     if (status === true) {
-      await this.capture.viewport(DIR.results_folder, "Element-Attached.png");
+      await this.capture.viewport(DIR.results_folder, "Element-Attached");
       await expect(this.renderedElement).toBeVisible();
       expect(await this.renderedElement.innerText()).toBe("Hello World!");
     } else {
-      await this.capture.viewport(DIR.results_folder, "Element-Missing.png");
+      await this.capture.viewport(DIR.results_folder, "Element-Missing");
       await expect(this.renderedElement).not.toBeAttached();
     }
   }

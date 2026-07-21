@@ -35,7 +35,7 @@ export class JavaScriptEventError {
     await expect(this.pageContent).toHaveText(
       "This page has a JavaScript error in the onload event. This is often a problem to using normal Javascript injection techniques.",
     );
-    await this.capture.viewport(DIR.results_folder, "Full-Page.png");
+    await this.capture.viewport(DIR.results_folder, "Full-Page");
 
     expect(pageErrors).toHaveLength(0);
   }

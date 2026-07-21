@@ -36,6 +36,6 @@ export class KeyPressesPage {
     expect(await this.pageContent.textContent()).toBe(
       `You entered: ${expectedResponse}`,
     );
-    await this.capture.viewport(DIR.results_folder, `Key-${key}.png`);
+    await this.capture.viewport(DIR.results_folder, `Key-${key}`);
   }
 }

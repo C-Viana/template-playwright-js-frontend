@@ -1,7 +1,8 @@
-import { test } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 import { ScreenshotHelper } from "../src/utils/ScreenshotHelper.js";
 import { HomePage } from "../src/pages/HomePage.js";
 import { RedirectLinkPage } from "../src/pages/RedirectLinkPage.js";
+import { APP } from "../src/data/TestData.js";
 
 const expectedCodes: string[] = ["200", "301", "404", "500"];
 
@@ -12,7 +13,8 @@ test("The Internet: Redirect Link - Status Code", async ({ page }) => {
 
   await home.navigate();
   await home.selectMenu("Redirect Link");
-  await home.validateTitle();
+  expect(await home.getTitle()).toBe(APP.title);
+
   await feature.validatePage();
   await feature.clickRedirection();
   await feature.validateAllRedirections(expectedCodes);

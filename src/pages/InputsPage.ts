@@ -27,7 +27,7 @@ export class InputsPage {
   async setValue(inputValue: string) {
     await this.input.fill(inputValue, { timeout: 500 });
     expect(await this.input.inputValue()).toBe(inputValue);
-    await this.capture.viewport(DIR.results_folder, "Value-Typed.png");
+    await this.capture.viewport(DIR.results_folder, "Value-Typed");
     await this.input.clear();
   }
 
@@ -35,7 +35,7 @@ export class InputsPage {
     await this.input.focus();
     await this.input.press(inputValue, { delay: 500 });
     expect(await this.input.inputValue()).toBe(expectedOutputValue);
-    await this.capture.viewport(DIR.results_folder, "Value-Typed.png");
+    await this.capture.viewport(DIR.results_folder, "Value-Typed");
     await this.input.clear();
   }
 }

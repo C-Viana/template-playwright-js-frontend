@@ -35,7 +35,7 @@ export class DropdownPage {
     await this.dropdown.selectOption({ index: index });
     await this.capture.viewport(
       DIR.results_folder,
-      `option-${index}-selected.png`,
+      `option-${index}-selected`,
     );
   }
 

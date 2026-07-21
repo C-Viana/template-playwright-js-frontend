@@ -34,12 +34,12 @@ export class FloatingMenuPage {
 
   async scrollPageDown() {
     await this.page.mouse.wheel(0, 300);
-    await this.capture.viewport(DIR.results_folder, "Scrolled-Down.png");
+    await this.capture.viewport(DIR.results_folder, "Scrolled-Down");
   }
 
   async validateMenu() {
     await this.page.waitForTimeout(2000);
-    await this.capture.viewport(DIR.results_folder, "Menu-Enabled.png");
+    await this.capture.viewport(DIR.results_folder, "Menu-Enabled");
     await expect(this.menuItemHome).toBeInViewport();
     await expect(this.menuItemNews).toBeInViewport();
     await expect(this.menuItemContact).toBeInViewport();

@@ -2,8 +2,8 @@ import { test } from "@playwright/test";
 import { ScreenshotHelper } from "../src/utils/ScreenshotHelper.js";
 import { HomePage } from "../src/pages/HomePage.js";
 import { DigestAuthenticationPage } from "../src/pages/DigestAuthenticationPage.js";
-//import data from '../src/data/TestData.json' with {type: "json"}
 import { loadEnvFile } from "node:process";
+
 loadEnvFile(".env");
 
 test.use({

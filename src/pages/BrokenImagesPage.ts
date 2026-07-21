@@ -39,7 +39,7 @@ export class BrokenImagesPage {
     await this.capture.component(
       imgLocator,
       `${DIR.results_folder}`,
-      `image-component-${expectedStatusCode}.png`,
+      `image-component-${expectedStatusCode}`,
     );
     const fileName = await imgLocator.getAttribute("src");
     get(`https://the-internet.herokuapp.com/img/${fileName}`).then((response) =>

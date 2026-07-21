@@ -41,13 +41,13 @@ export class DynamicControlsPage {
   async clickRemove() {
     expect(await this.addRemoveButton.innerText()).toBe("Remove");
     await this.addRemoveButton.click();
-    await this.capture.viewport(DIR.results_folder, "Removing-Checkbox.png");
+    await this.capture.viewport(DIR.results_folder, "Removing-Checkbox");
   }
 
   async clickAdd() {
     expect(await this.addRemoveButton.innerText()).toBe("Add");
     await this.addRemoveButton.click();
-    await this.capture.viewport(DIR.results_folder, "Removing-Checkbox.png");
+    await this.capture.viewport(DIR.results_folder, "Removing-Checkbox");
   }
 
   async waitLoading() {
@@ -56,14 +56,14 @@ export class DynamicControlsPage {
   }
 
   async validateRemoval() {
-    await this.capture.viewport(DIR.results_folder, "Validating-Removal.png");
+    await this.capture.viewport(DIR.results_folder, "Validating-Removal");
     expect(await this.checkbox.isVisible()).toBeFalsy();
     expect(await this.addRemoveButton.innerText()).toBe("Add");
     expect(await this.operationMessage.innerText()).toBe("It's gone!");
   }
 
   async validateAddition() {
-    await this.capture.viewport(DIR.results_folder, "Validating-Addition.png");
+    await this.capture.viewport(DIR.results_folder, "Validating-Addition");
     expect(await this.checkbox.isVisible()).toBeTruthy();
     expect(await this.addRemoveButton.innerText()).toBe("Remove");
     expect(await this.operationMessage.innerText()).toBe("It's back!");
@@ -73,14 +73,14 @@ export class DynamicControlsPage {
     if (status === false) {
       await this.capture.viewport(
         DIR.results_folder,
-        "Validating-Component-Disabled.png",
+        "Validating-Component-Disabled",
       );
       await expect(this.input).toHaveAttribute("disabled", /.*/);
       expect(await this.enableButton.innerText()).toBe("Enable");
     } else {
       await this.capture.viewport(
         DIR.results_folder,
-        "Validating-Component-Enabled.png",
+        "Validating-Component-Enabled",
       );
       await expect(this.input).not.toHaveAttribute("disabled", /.*/);
       expect(await this.enableButton.innerText()).toBe("Disable");

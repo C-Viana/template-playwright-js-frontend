@@ -41,6 +41,6 @@ export class HorizontalSliderPage {
     for (let index = 0; index < value; index++) {
       await this.inputRange.press("ArrowRight", { delay: 500 });
     }
-    await this.capture.viewport(DIR.results_folder, "Value-Changed.png");
+    await this.capture.viewport(DIR.results_folder, "Value-Changed");
   }
 }

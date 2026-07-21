@@ -41,7 +41,7 @@ export class ChallengingDomPage {
     await this.capture.component(
       locator,
       `${DIR.results_folder}`,
-      `button-${color}.png`,
+      `button-${color}`,
     );
     expect(this.btnTexts.includes(await locator.innerText())).toBeTruthy();
 
@@ -83,7 +83,7 @@ export class ChallengingDomPage {
     await this.capture.component(
       this.canvasLocator,
       `${DIR.results_folder}`,
-      `canvas.png`,
+      `canvas`,
     );
     expect(currentContent).toContain("Answer:");
     expect(currentContent).toMatch(new RegExp(regexPattern));

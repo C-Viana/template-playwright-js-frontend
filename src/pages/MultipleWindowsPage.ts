@@ -36,7 +36,7 @@ export class MultipleWindowsPage {
     await newPage.waitForLoadState();
     expect(await newPage.locator("h3").textContent()).toBe("New Window");
     await newPage.screenshot({
-      path: `${DIR.results_folder}/${this.capture.getTestName()}/${this.capture.useCounter()}-second-tab.png`,
+      path: `${DIR.results_folder}/${this.capture.getTestName()}/${this.capture.useCounter()}-second-tab`,
       fullPage: false,
     });
   }

@@ -26,7 +26,7 @@ export class EntryAdPage {
 
   async validateModalComponent() {
     await expect(this.modalTitle).toBeVisible({ timeout: 5000 });
-    await this.capture.viewport(DIR.results_folder, "Modal-Validated.png");
+    await this.capture.viewport(DIR.results_folder, "Modal-Validated");
     expect(await this.modalTitle.innerText()).toBe("THIS IS A MODAL WINDOW");
     expect(await this.modalBody.innerText()).toBe(
       "It's commonly used to encourage a user to take an action (e.g., give their e-mail address to sign up for something or disable their ad blocker).",
@@ -42,6 +42,6 @@ export class EntryAdPage {
   async validateModalIsHidden() {
     await expect(this.modalTitle).toBeHidden({ timeout: 2000 });
     await expect(this.pageTitle).toHaveText("Entry Ad");
-    await this.capture.viewport(DIR.results_folder, "Modal-Closed.png");
+    await this.capture.viewport(DIR.results_folder, "Modal-Closed");
   }
 }

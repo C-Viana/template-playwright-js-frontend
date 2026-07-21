@@ -32,7 +32,7 @@ export class RedirectLinkPage {
     await this.featureButton.click();
     await this.page.waitForLoadState("load");
     await expect(this.pageTitle).toHaveText("Status Codes");
-    await this.capture.viewport(DIR.results_folder, "Redirect-Page.png");
+    await this.capture.viewport(DIR.results_folder, "Redirect-Page");
   }
 
   async validateAllRedirections(expectedCodes: Array<string>) {
@@ -43,7 +43,7 @@ export class RedirectLinkPage {
       );
       await this.capture.viewport(
         DIR.results_folder,
-        `${expectedCodes[index]}-status.png`,
+        `${expectedCodes[index]}-status`,
       );
       await this.returnButton.click();
       await this.page.waitForLoadState("load");

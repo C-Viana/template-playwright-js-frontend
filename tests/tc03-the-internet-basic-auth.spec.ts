@@ -1,8 +1,8 @@
 import { test, expect } from "@playwright/test";
 import { ScreenshotHelper } from "../src/utils/ScreenshotHelper.js";
 import { HomePage } from "../src/pages/HomePage.js";
-//import data from '../src/data/TestData.json' with {type: "json"}
 import { loadEnvFile } from "node:process";
+import { APP } from "../src/data/TestData.js";
 loadEnvFile(".env");
 
 const PAGE_TITLE = "Basic Auth";
@@ -20,7 +20,7 @@ test("The Internet: Basic Auth with valid credentials", async ({ page }) => {
 
   await home.navigate();
   await home.selectMenu("Basic Auth");
-  await home.validateTitle();
+  expect(await home.getTitle()).toBe(APP.title);
 
   await expect(page.locator("h3")).toHaveText(PAGE_TITLE);
 });

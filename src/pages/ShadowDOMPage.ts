@@ -37,7 +37,7 @@ export class ShadowDOMPage {
     await this.capture.component(
       this.pageContentSpan,
       DIR.results_folder,
-      "Span-Content.png",
+      "Span-Content",
     );
     await expect(this.pageContentListItem).toHaveText(
       "Let's have some different text!",
@@ -45,14 +45,14 @@ export class ShadowDOMPage {
     await this.capture.component(
       this.pageContentListItem,
       DIR.results_folder,
-      "List-Content.png",
+      "List-Content",
     );
   }
 
   async validateShadowDomContent() {
     const shadowRootElements = await this.shadowRootElement.all();
     expect(shadowRootElements.length).toBe(2);
-    await this.capture.viewport(DIR.results_folder, "Shadow-DOM-Validated.png");
+    await this.capture.viewport(DIR.results_folder, "Shadow-DOM-Validated");
     await expect(shadowRootElements[0]).toHaveText("My default text");
     await expect(shadowRootElements[1]).toHaveText("My default text");
   }

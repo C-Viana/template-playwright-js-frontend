@@ -29,7 +29,7 @@ export class ShiftingContentPage {
   async clickList() {
     await this.linkList.click();
     await expect(this.pageTitle).toHaveText(`Shifting Content: List`);
-    await this.capture.viewport(DIR.results_folder, "List-Page.png");
+    await this.capture.viewport(DIR.results_folder, "List-Page");
   }
 
   async getContent() {
@@ -39,7 +39,7 @@ export class ShiftingContentPage {
   async reload() {
     await this.page.evaluate(() => window.location.reload());
     await this.page.waitForLoadState("load");
-    await this.capture.viewport(DIR.results_folder, "Reloaded-Page.png");
+    await this.capture.viewport(DIR.results_folder, "Reloaded-Page");
   }
 
   async validateShiftingContent(expectedValues: Array<string>) {

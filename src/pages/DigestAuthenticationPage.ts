@@ -24,7 +24,7 @@ export class DigestAuthenticationPage {
     );
     await this.capture.viewport(
       DIR.results_folder,
-      "Authentication-Success.png",
+      "Authentication-Success",
     );
   }
 }

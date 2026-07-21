@@ -27,7 +27,7 @@ export class CheckboxesPage {
    */
   async check(locator: Locator) {
     await locator.click();
-    await this.capture.viewport(DIR.results_folder, "click-performed.png");
+    await this.capture.viewport(DIR.results_folder, "click-performed");
   }
 
   /**

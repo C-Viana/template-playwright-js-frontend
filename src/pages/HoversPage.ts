@@ -35,7 +35,7 @@ export class HoversPage {
       await this.capture.component(
         allProfiles[index],
         DIR.results_folder,
-        "Validating-Element.png",
+        "Validating-Element",
       );
       await expect(username).toBeVisible();
     }

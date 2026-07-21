@@ -4,5 +4,8 @@
   },
   "DIR": {
     "results_folder": "test-results"
+  },
+  "APP": {
+    "title": "The Internet"
   }
 }

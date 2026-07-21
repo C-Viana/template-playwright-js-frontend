@@ -17,6 +17,7 @@ export default defineConfig([
     plugins: { json },
     language: "json/json",
     extends: ["json/recommended"],
+    ignores: ["package-lock.json"],
   },
   {
     files: ["**/*.jsonc"],

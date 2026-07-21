@@ -1,7 +1,8 @@
-import { test } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 import { ScreenshotHelper } from "../src/utils/ScreenshotHelper.js";
 import { HomePage } from "../src/pages/HomePage.js";
 import { AddRemoveElementsPage } from "../src/pages/AddRemoveElementsPage.js";
+import { APP } from "../src/data/TestData.js";
 
 test("The Internet: Add/Remove One Element", async ({ page }) => {
   const capture = new ScreenshotHelper(page, "SC02-TC01");
@@ -10,8 +11,9 @@ test("The Internet: Add/Remove One Element", async ({ page }) => {
 
   await home.navigate();
   await home.selectMenu("Add/Remove Elements");
-  await home.validateTitle();
-  await feature.validatePage();
+  expect(await home.getTitle()).toBe(APP.title);
+  
+  await feature.validatePage("Add/Remove Elements");
   await feature.addElement();
   await feature.removeButtonExists();
   await feature.removeElement();
@@ -25,8 +27,8 @@ test("The Internet: Add/Remove Multiple Elements", async ({ page }) => {
 
   await home.navigate();
   await home.selectMenu("Add/Remove Elements");
-  await home.validateTitle();
-  await feature.validatePage();
+  expect(await home.getTitle()).toBe(APP.title);
+  await feature.validatePage("Add/Remove Elements");
 
   for (let index = 0; index < 5; index++) {
     await feature.addElement();

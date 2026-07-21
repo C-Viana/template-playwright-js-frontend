@@ -30,7 +30,7 @@ export class ContextMenuPage {
     this.capture.component(
       this.contextDiv,
       DIR.results_folder,
-      "Context-Component.png",
+      "Context-Component",
     );
   }
 

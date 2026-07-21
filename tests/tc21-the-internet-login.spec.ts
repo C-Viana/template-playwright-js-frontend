@@ -1,7 +1,8 @@
-import { test } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 import { ScreenshotHelper } from "../src/utils/ScreenshotHelper.js";
 import { HomePage } from "../src/pages/HomePage.js";
 import { FormAuthenticationPage } from "../src/pages/FormAuthenticationPage.js";
+import { APP } from "../src/data/TestData.js";
 
 test("The Internet: Form Authentication", async ({ page }) => {
   const capture = new ScreenshotHelper(page, "SC21-TC01");
@@ -10,7 +11,8 @@ test("The Internet: Form Authentication", async ({ page }) => {
 
   await home.navigate();
   await home.selectMenu("Form Authentication");
-  await home.validateTitle();
+  expect(await home.getTitle()).toBe(APP.title);
+
   await feature.validatePage();
   await feature.setFormData();
   await feature.clickLogin();

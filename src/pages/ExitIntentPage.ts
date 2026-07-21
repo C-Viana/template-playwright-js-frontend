@@ -28,7 +28,7 @@ export class ExitIntentPage {
 
   async waitModal() {
     await expect(this.modalTitle).toBeVisible({ timeout: 5000 });
-    await this.capture.viewport(DIR.results_folder, "Modal-Validated.png");
+    await this.capture.viewport(DIR.results_folder, "Modal-Validated");
   }
 
   async validateModal() {
@@ -42,6 +42,6 @@ export class ExitIntentPage {
   async closeModal() {
     await this.modalButton.click();
     await expect(this.modalTitle).toBeHidden({ timeout: 2000 });
-    await this.capture.viewport(DIR.results_folder, "Modal-Closed.png");
+    await this.capture.viewport(DIR.results_folder, "Modal-Closed");
   }
 }

@@ -34,7 +34,7 @@ export class DynamicContentPage {
       await this.capture.component(
         images[index],
         DIR.results_folder,
-        `avatar-img-${index}.png`,
+        `avatar-img-${index}`,
       );
       expect(this.imageSources).toContain(
         await images[index].getAttribute("src"),

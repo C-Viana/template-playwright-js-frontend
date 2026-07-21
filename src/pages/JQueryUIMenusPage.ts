@@ -30,7 +30,7 @@ export class JQueryUIMenusPage {
    */
   async hoverItem(menuItem: Locator) {
     await menuItem.hover();
-    await this.capture.viewport(DIR.results_folder, "Item-Validated.png");
+    await this.capture.viewport(DIR.results_folder, "Item-Validated");
   }
 
   async validateMenuItems() {

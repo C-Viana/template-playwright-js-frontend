@@ -1,7 +1,8 @@
-import { test } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 import { ScreenshotHelper } from "../src/utils/ScreenshotHelper.js";
 import { HomePage } from "../src/pages/HomePage.js";
 import { HoversPage } from "../src/pages/HoversPage.js";
+import { APP } from "../src/data/TestData.js";
 
 test("The Internet: Hovers", async ({ page }) => {
   const capture = new ScreenshotHelper(page, "SC25-TC01");
@@ -10,7 +11,8 @@ test("The Internet: Hovers", async ({ page }) => {
 
   await home.navigate();
   await home.selectMenu("Hovers");
-  await home.validateTitle();
+  expect(await home.getTitle()).toBe(APP.title);
+
   await feature.validatePage();
   await feature.validateAllFigures();
 });
