@@ -32,7 +32,8 @@ export class BrokenImagesPage {
    * @param {string} expectedStatusCode
    */
   async validateImageStatus(imgLocator: Locator, expectedStatusCode: number) {
-    const fileName = await imgLocator.getAttribute("src", {timeout: 2000});
+    await imgLocator.waitFor({state: "visible", timeout: 5000});
+    const fileName = await imgLocator.getAttribute("src");
     await this.capture.component(
       imgLocator,
       `${DIR.results_folder}`,
