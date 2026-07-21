@@ -32,12 +32,12 @@ export class BrokenImagesPage {
    * @param {string} expectedStatusCode
    */
   async validateImageStatus(imgLocator: Locator, expectedStatusCode: number) {
+    const fileName = await imgLocator.getAttribute("src", {timeout: 2000});
     await this.capture.component(
       imgLocator,
       `${DIR.results_folder}`,
       `image-component-${expectedStatusCode}`,
     );
-    const fileName = await imgLocator.getAttribute("src");
     get(`https://the-internet.herokuapp.com/img/${fileName}`).then((response) =>
       expect(response.status).toBe(expectedStatusCode),
     );
