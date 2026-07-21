@@ -13,10 +13,19 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
+      - name: Static Test with ESLint
+        run: npm run lint
       - name: Install dependencies
         run: npm ci
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+      - name: Create .env file
+        run: |
+          touch .env
+          echo "AUTH_Basic_username=${{ secrets.AUTH_BASIC_USERNAME }}" >> .env
+          echo "AUTH_Basic_password=${{ secrets.AUTH_BASIC_PASSWORD }}" >> .env
+          echo "AUTH_Form_username=${{ secrets.AUTH_FORM_USERNAME }}" >> .env
+          echo "AUTH_Form_password=${{ secrets.AUTH_FORM_PASSWORD }}" >> .env
       - name: Run Playwright tests
         run: npx playwright test
       - uses: actions/upload-artifact@v4
