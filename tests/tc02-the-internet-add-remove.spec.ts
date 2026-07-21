@@ -17,7 +17,7 @@ test("The Internet: Add/Remove One Element", async ({ page }) => {
   await feature.addElement();
   await feature.removeButtonExists();
   await feature.removeElement();
-  await feature.removeButtonNotExists();
+  expect(await feature.removeButtonExists()).toBe(false);
 });
 
 test("The Internet: Add/Remove Multiple Elements", async ({ page }) => {
@@ -34,7 +34,9 @@ test("The Internet: Add/Remove Multiple Elements", async ({ page }) => {
     await feature.addElement();
   }
 
-  await feature.removeButtonQuantity(5);
+  expect(await feature.getButtonQuantity()).toBe(5);
+
   await feature.removeAll();
-  await feature.removeButtonNotExists();
+  expect(await feature.removeButtonExists()).toBe(false);
+  expect(await feature.getButtonQuantity()).toBe(0);
 });

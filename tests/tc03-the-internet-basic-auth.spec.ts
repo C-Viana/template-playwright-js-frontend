@@ -1,8 +1,8 @@
 import { test, expect } from "@playwright/test";
 import { ScreenshotHelper } from "../src/utils/ScreenshotHelper.js";
 import { HomePage } from "../src/pages/HomePage.js";
-import { loadEnvFile } from "node:process";
 import { APP } from "../src/data/TestData.js";
+import { loadEnvFile } from "node:process";
 loadEnvFile(".env");
 
 const PAGE_TITLE = "Basic Auth";

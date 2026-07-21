@@ -35,8 +35,9 @@ export class MultipleWindowsPage {
   async validateNewPage(newPage: Page) {
     await newPage.waitForLoadState();
     expect(await newPage.locator("h3").textContent()).toBe("New Window");
+    const path = `${DIR.results_folder}/${this.capture.getTestName()}/${this.capture.useCounter()}-second-tab.png`
     await newPage.screenshot({
-      path: `${DIR.results_folder}/${this.capture.getTestName()}/${this.capture.useCounter()}-second-tab`,
+      path: path,
       fullPage: false,
     });
   }

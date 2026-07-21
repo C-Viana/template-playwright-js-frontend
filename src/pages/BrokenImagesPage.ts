@@ -18,16 +18,12 @@ export class BrokenImagesPage {
     this.imageLocator = this.page.locator("#content img");
   }
 
-  async getAllImages() {
+  async getAllImages(): Promise<Locator[]> {
     return await this.imageLocator.all();
   }
 
-  /**
-   *
-   * @param {number} expected
-   */
-  async validateImageQuantity(expected: number) {
-    expect(await this.imageLocator.count()).toBe(expected);
+  async getImageQuantity(): Promise<number> {
+    return await this.imageLocator.count();
   }
 
   /**

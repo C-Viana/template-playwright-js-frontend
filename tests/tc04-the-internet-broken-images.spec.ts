@@ -13,7 +13,8 @@ test("The Internet: Broken Images", async ({ page }) => {
   await home.selectMenu("Broken Images");
   expect(await home.getTitle()).toBe(APP.title);
 
-  await feature.validateImageQuantity(3);
+  expect(await feature.getImageQuantity()).toBe(3);
+
   const images = await feature.getAllImages();
   await feature.validateImageStatus(images[0], 404);
   await feature.validateImageStatus(images[1], 404);

@@ -13,8 +13,6 @@ test("The Internet: A/B Testing", async ({ page }) => {
   await home.selectMenu("A/B Testing");
   expect(await home.getTitle()).toBe(APP.title);
 
-  await featurePage.getPageTitle();
-
   expect(await featurePage.getPageTitle()).toMatch(
     new RegExp("A/B Test Control|A/B Test Variation \\d"),
   );

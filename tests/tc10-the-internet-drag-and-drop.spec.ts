@@ -13,7 +13,7 @@ test("The Internet: Drag and Drop", async ({ page }) => {
   await home.selectMenu("Drag and Drop");
   expect(await home.getTitle()).toBe(APP.title);
 
-  await feature.validateInitialPositions();
+  await feature.validateElementsContent("A", "B");
   await feature.moveElementAToPositionB();
-  await feature.validateElementsSwapperd();
+  await feature.validateElementsContent("B", "A");
 });

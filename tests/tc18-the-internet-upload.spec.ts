@@ -14,7 +14,7 @@ test("The Internet: File Upload", async ({ page }) => {
   expect(await home.getTitle()).toBe(APP.title);
 
   await feature.validatePage();
-  await feature.inputFile(`${process.cwd()}\\.gitignore`);
+  await feature.inputFile(`${process.cwd()}\\README.md`);
   await feature.clickUpload();
   await feature.validateUploadedFile();
 });

@@ -39,22 +39,8 @@ export class AddRemoveElementsPage {
     await this.buttonRemove.click({ delay: 500 });
   }
 
-  async removeButtonExists() {
-    await expect(this.buttonRemove).toBeVisible();
-    await this.capture.component(
-      this.buttonRemove,
-      DIR.results_folder,
-      "Button-Remove",
-    );
-  }
-
-  /**
-   *
-   * @param {number} quantity
-   */
-  async removeButtonQuantity(quantity: number) {
-    await this.capture.viewport(DIR.results_folder, "All-Elements");
-    expect(await this.buttonRemove.count()).toBe(quantity);
+  async getButtonQuantity() {
+    return await this.buttonRemove.count();
   }
 
   async removeAll() {
@@ -64,9 +50,13 @@ export class AddRemoveElementsPage {
     }
   }
 
-  async removeButtonNotExists() {
-    await this.capture.viewport(DIR.results_folder, "Element-Deleted");
-    expect(await this.buttonRemove.count()).toBe(0);
-    await expect(this.buttonAdd).toBeVisible();
+  async addButtonExists(): Promise<boolean> {
+    await this.capture.viewport(DIR.results_folder, "Add-Button-Status");
+    return this.buttonAdd.isVisible()
+  }
+
+  async removeButtonExists(): Promise<boolean> {
+    await this.capture.viewport(DIR.results_folder, "Add-Button-Status");
+    return this.buttonRemove.isVisible()
   }
 }
